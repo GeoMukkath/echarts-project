@@ -43,7 +43,7 @@ function App() {
         }}
         bounds="window" //Bounds the container withing the viewport
       >
-        <div style={{ width: "100%" }}>
+        <div>
           <ReactEcharts option={option} />
         </div>
       </Rnd>
