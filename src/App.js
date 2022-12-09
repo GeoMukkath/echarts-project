@@ -1,6 +1,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
-import Container from "@mui/material/Container";
+import { Rnd } from "react-rnd";
+import { global } from "./global";
 
 function App() {
   const option = {
@@ -18,14 +19,38 @@ function App() {
         smooth: true,
       },
     ],
+    textStyle: {
+      color: function (value) {
+        return "white";
+      },
+    },
+    autoResize: true,
   };
   return (
-    <div className="App">
-      <Container maxWidth="sm">
-        <ReactEcharts option={option} />
-      </Container>
+    <div className="App" style={global.page_background}>
+      <Rnd
+        style={style}
+        default={{
+          x: 0,
+          y: 0,
+          width: 350,
+          height: 250,
+        }}
+        bounds="body"
+      >
+        <div style={{ width: "100%" }}>
+          <ReactEcharts option={option} />
+        </div>
+      </Rnd>
     </div>
   );
 }
+
+const style = {
+  display: "flex",
+  flexDirection: "column",
+  border: "5px dotted white",
+  justifyContent: "center",
+};
 
 export default App;
