@@ -1,7 +1,8 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
 import { Rnd } from "react-rnd";
-import { global } from "./global";
+import global from "./global";
+import "@fontsource/raleway-dots";
 
 function App() {
   const option = {
@@ -20,23 +21,27 @@ function App() {
       },
     ],
     textStyle: {
-      color: function (value) {
+      color: function () {
         return "white";
       },
     },
     autoResize: true,
   };
   return (
-    <div className="App" style={global.page_background}>
+    <div className="App">
+      <span style={global.span}>Drag</span>
+      <span style={global.span}>Resize</span>
+      <span style={global.span}>Stretch</span>
       <Rnd
         style={style}
         default={{
-          x: 0,
-          y: 0,
-          width: 350,
+          //Calculating the height and width to center the container on initial load
+          x: window.innerWidth / 2 - 210,
+          y: window.innerHeight / 2 - 125,
+          width: 420,
           height: 250,
         }}
-        bounds="body"
+        bounds="window" //Bounds the container withing the viewport
       >
         <div style={{ width: "100%" }}>
           <ReactEcharts option={option} />
