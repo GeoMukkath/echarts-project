@@ -17,5 +17,4 @@
 3. Corner case like container div moving outside window and hiding is prevented. 
 
 ##### You can check the live version here 🌐
-https://echarts-noesys.netlify.app/
-
+<a href="https://echarts-noesys.netlify.app/" target="_blank">Echarts project</a>
